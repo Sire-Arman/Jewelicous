@@ -1,0 +1,112 @@
+.loginpage_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-block: 60px;
+}
+
+.form {
+  background-color: white;
+  border-radius: 30px;
+  transform: translateX(-25px);
+  padding-inline: 60px;
+  padding-block: 30px;
+  position: relative;
+}
+
+.imgcontainer {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  width: 450px;
+  background-color: #e9d1ff;
+  font-weight: bolder;
+  font-size: 32px;
+  line-height: 1.6;
+  font-family: "Times New Roman", Times, serif;
+  padding-inline: 20px;
+  padding-block: 40px;
+  text-align: center;
+}
+.img {
+  width: 320px;
+
+  margin-top: 30px;
+  margin: auto;
+}
+.select {
+  position: absolute;
+  right: 40px;
+  cursor: pointer;
+  outline: none;
+}
+
+.form h1 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.form div {
+  width: 100%;
+  position: relative;
+  margin-block: 50px;
+}
+
+.form div input {
+  width: 100%;
+  background-color: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid;
+  padding: 0;
+}
+
+.form label {
+  position: absolute;
+  left: 1px;
+  transition: all 0.25s linear;
+  color: #5d0b86;
+  pointer-events: none;
+}
+
+.form div input:focus + label,
+.form div input:valid + label {
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: black;
+}
+
+.form span {
+  font-size: 14px;
+}
+
+.form button {
+  display: block;
+  color: white;
+  background-color: #5d0b86;
+  width: 90%;
+  margin-inline: auto;
+  margin-block: 20px;
+  border-radius: 20px;
+  padding-block: 7px;
+}
+
+@media screen and (max-width: 768px) {
+  .loginpage_container {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 30px;
+  }
+  .form {
+    transform: translateX(0px);
+    padding-inline: 15px;
+  }
+  .imgcontainer {
+    width: 100%;
+    border-radius: 30px;
+    order: 2;
+    font-size: 25px;
+  }
+  .select {
+    right: 20px;
+  }
+}

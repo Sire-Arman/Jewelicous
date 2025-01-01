@@ -1,0 +1,32 @@
+.profile-form-section {
+  padding: 40px 50px;
+  background: #f6f1fa;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin: 50px 100px;
+  border-radius: 10px;
+}
+
+.profile-form-section input {
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.profile-form-section input::placeholder {
+  color: rgb(110, 110, 110);
+}
+
+@media screen and (max-width: 870px) {
+  .profile-form-section {
+    margin: 50px 20px;
+    padding: 40px 20px;
+  }
+}
+@media screen and (max-width: 536px) {
+  .profile-form-section form div {
+    flex-direction: column;
+  }
+  .profile-form-section {
+    padding-bottom: 50px;
+  }
+}

@@ -1,0 +1,46 @@
+.book-call-components {
+  padding-bottom: 50px;
+}
+
+.book-call-components .call-component,
+.book-call-components .chat-component {
+  width: 500px;
+  height: 120px;
+  text-align: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5); /* Gradient colors */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 1100px) {
+  .call-component,
+  .chat-component {
+    width: 400px !important;
+  }
+}
+@media screen and (max-width: 870px) {
+  .call-component,
+  .chat-component {
+    width: 350px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .book-call-components {
+    flex-direction: column !important;
+    margin: 0 10px;
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .call-component,
+  .chat-component {
+    width: 100% !important;
+  }
+}

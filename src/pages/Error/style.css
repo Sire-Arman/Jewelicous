@@ -1,0 +1,17 @@
+@media screen and (max-width: 490px) {
+  .error-heading {
+    font-size: 25px;
+  }
+  .error-text {
+    font-size: 18px;
+  }
+  .error-btn {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .error-btn button {
+    width: 100% !important;
+    padding: 8px 10px !important;
+    margin: 0 !important;
+  }
+}

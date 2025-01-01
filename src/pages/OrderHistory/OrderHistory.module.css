@@ -1,0 +1,40 @@
+.order_subdetails {
+  gap: 64px;
+}
+.subcontainer {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@media screen and (max-width: 1025px) {
+  .order_image {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .subcontainer {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .orderitem_container {
+    gap: 8px;
+  }
+  .order_image {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .orderhistorypage_container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .order_subdetails {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .orderitem_container {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 375px) {
+}

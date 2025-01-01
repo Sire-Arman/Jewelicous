@@ -1,0 +1,62 @@
+.payment-status-page {
+  background: url(../../images/Group\ 133.png) no-repeat;
+
+  background-position: center;
+}
+
+.payment-status-container {
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  height: 500px;
+  width: 500px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+}
+
+.payment-status-container h2 {
+  text-transform: uppercase;
+}
+.payment-status-container img {
+  width: 50%;
+}
+.payment-status-container p {
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+.payment-status-container button {
+  background: #a7bb00;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 50px;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 570px) {
+  .payment-status-container {
+    height: auto;
+    width: auto;
+    margin: 50px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .payment-status-container {
+    margin: 50px;
+    padding: 20px;
+  }
+  .payment-status-container h2 {
+    font-size: 20px;
+  }
+  .payment-status-container p {
+    font-size: 17px;
+  }
+  .payment-status-container button {
+    padding: 10px 20px;
+  }
+}

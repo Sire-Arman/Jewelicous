@@ -1,0 +1,65 @@
+.allAccordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-block: 24px;
+  padding-inline: 38px;
+}
+.gradient-text {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5); /* Gradient colors */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-text-heading {
+  font-size: 25px;
+  font-weight: bold;
+}
+.gradient-text-selectedValue {
+  font-size: 18px;
+  font-weight: normal;
+}
+.css-1086bdv-MuiPaper-root-MuiAccordion-root {
+  margin: 40px !important;
+}
+.css-1f773le-MuiButtonBase-root-MuiAccordionSummary-root {
+  padding: 0 16px !important;
+}
+@media screen and (max-width: 800px) {
+  .css-1086bdv-MuiPaper-root-MuiAccordion-root {
+    margin: 10px !important;
+  }
+}
+@media screen and (max-width: 625px) {
+  .css-1f773le-MuiButtonBase-root-MuiAccordionSummary-root {
+    padding: 0px 2px !important;
+  }
+  .css-15v22id-MuiAccordionDetails-root {
+    padding: 8px 0px 16px !important;
+  }
+  .gradient-text-heading {
+    font-size: 20px;
+  }
+  .gradient-text-selectedValue {
+    font-size: 14px;
+  }
+  .allAccordionContainer {
+    padding-inline: 12px;
+  }
+  .product-name-box-container {
+    flex-direction: column;
+    align-items: flex-start !important;
+    padding: 10px !important;
+    margin-inline: 10px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .customize-container {
+    padding: 0 !important;
+  }
+  .submit-customize-btn button {
+    width: 80%;
+    padding: 10px !important;
+  }
+}

@@ -1,0 +1,38 @@
+.swipercontainer {
+  /* height: 60vh; */
+  /* margin-top: 10rem; */
+  /* background-color: red; */
+  max-width: 1350px;
+  margin: auto;
+}
+
+.swiper {
+  height: 100%;
+  width: 100%;
+  padding-bottom: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  zoom: 0.7;
+}
+
+.swiperslide {
+  padding: 2rem 1rem;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  width: 420px !important;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.imagehoverscale {
+  height: 270px;
+  transition: all 0.3s linear;
+}
+.imagehoverscale:hover {
+  transform: scale(1.07);
+  mix-blend-mode: multiply;
+}
+@media screen and (max-width: 425px) {
+  .swiperslide {
+    width: 350px !important;
+  }
+}

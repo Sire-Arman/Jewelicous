@@ -1,0 +1,151 @@
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffd700;
+  margin: 0;
+  height: 30px;
+  color: black;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+}
+
+.active {
+  background-color: rgb(220, 220, 220);
+  border-radius: 5px;
+}
+.marquee {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: space-between;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+  width: max-content;
+}
+
+.marquee p {
+  display: inline-block;
+  padding-right: 2rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.callbackButton {
+  background-color: #5d0b86;
+  display: flex;
+  flex-direction: row;
+  width: 138px;
+  height: 40px;
+  border-radius: 5px;
+  color: white;
+  font-family: Jost;
+  line-height: 17.34px;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 7px;
+  margin-right: 10px;
+}
+p {
+  margin: 0;
+}
+.requestACallModal {
+  --bs-modal-width: 320px !important;
+  --bs-modal-padding: 1rem;
+}
+.requestACallModalHeader {
+  border-bottom: none;
+}
+.gradienttext {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5); /* Gradient colors */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.hoveroncategories:hover {
+  background-color: #5d0b86;
+  color: white;
+}
+@media screen and (max-width: 1400px) {
+  #nav_search_input {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 1250px) {
+  #nav_search_input {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  #nav_search_input {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .banner p:nth-child(even) {
+    display: none;
+  }
+}
+/* @media screen and (max-width:900px) {
+  .hamburgermenu{
+    display: block;
+  }
+  .callbackButton{
+    display: none;
+  }
+} */
+
+#icon_logo {
+  display: none;
+}
+.res_icons {
+  display: none;
+}
+@media screen and (max-width: 425px) {
+}
+
+.menu_logo {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .menu_logo {
+    display: block;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #res_logo {
+    display: none;
+  }
+  #icon_logo {
+    display: block;
+    height: 70px;
+    width: 60px;
+  }
+  .res_icons {
+    display: flex;
+
+    gap: 20px;
+    align-items: center;
+    color: white;
+  }
+}

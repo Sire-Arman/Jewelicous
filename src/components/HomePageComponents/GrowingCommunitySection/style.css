@@ -1,0 +1,51 @@
+.growing-community-section {
+  background: #f6f6f6;
+  padding: 50px;
+}
+
+.growing-community-section h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #46b24b;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.growing-community-section span {
+  font-size: 25px;
+  color: grey;
+}
+.growing-community-items {
+  gap: 80px;
+}
+
+@media screen and (max-width: 824px) {
+  .growing-community-items {
+    gap: 30px;
+  }
+  .growing-community-section {
+    padding: 50px 20px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .growing-community-section h3 {
+    font-size: 25px;
+  }
+  .growing-community-section span {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .growing-community-section h3 {
+    font-size: 20px;
+  }
+  .growing-community-section span {
+    font-size: 16px;
+    text-align: center;
+  }
+  .growing-community-items {
+    gap: 20px;
+  }
+}

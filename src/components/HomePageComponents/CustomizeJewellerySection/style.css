@@ -1,0 +1,60 @@
+.customize-jewellery-section {
+  height: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  position: relative;
+}
+
+.customize-jewellery-section img {
+  height: 100%;
+  width: 100%;
+}
+
+.customize-jewellery-section button {
+  position: absolute;
+  background-color: #f3e2df;
+  color: #000000;
+  padding: 10px 20px;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  width: 400px;
+}
+
+@media screen and (max-width: 1040px) {
+}
+@media screen and (max-width: 800px) {
+  .customize-jewellery-section {
+    height: 350px;
+  }
+  .customize-jewellery-section button {
+    width: auto;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .customize-jewellery-section {
+    height: 300px !important;
+  }
+  .customize-jewellery-section button {
+    width: auto;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .customize-jewellery-section {
+    height: 220px !important;
+  }
+  .customize-jewellery-section button {
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+}

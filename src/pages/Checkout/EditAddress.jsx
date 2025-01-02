@@ -3,7 +3,8 @@ import "./EditAddress.css";
 import axios from "axios";
 import { BASE_URL } from "../../../constant";
 import { toast } from "react-toastify";
-import cogoToast from "cogo-toast";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function EditAddress({ address }) {
   const userId = localStorage.getItem("userId");
@@ -68,7 +69,7 @@ function EditAddress({ address }) {
       !sanitizedPinCode ||
       !sanitizedLandMark
     ) {
-      cogoToast.error("Please fill in all required fields!");
+      toast.error("Please fill in all required fields!");
       return;
     }
 

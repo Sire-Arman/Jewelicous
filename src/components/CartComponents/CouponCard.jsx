@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../../constant";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import pincodes from "../../utils/pincodes.json";
 import { Message } from "@mui/icons-material";
 
@@ -192,7 +193,7 @@ const CouponCard = ({ cartItems }) => {
     if (isPincodeInLocalList) {
       setIsPincodeValid(true);
       setIsEditing(false);
-      cogoToast.success("Pincode is valid.");
+      toast.success("Pincode is valid.");
       return; // Exit if valid
     }
 
@@ -204,14 +205,14 @@ const CouponCard = ({ cartItems }) => {
 
       if (response.data[0].Status === "Success") {
         setIsPincodeValid(true);
-        cogoToast.success("Pincode is valid");
+        toast.success("Pincode is valid");
       } else {
         setIsPincodeValid(false);
-        cogoToast.error("Please enter a valid pincode");
+        toast.error("Please enter a valid pincode");
       }
     } catch (error) {
       console.error("Error checking pincode:", error);
-      cogoToast.error("An error occurred while checking the pincode.");
+      toast.error("An error occurred while checking the pincode.");
     }
   };
 
@@ -219,12 +220,12 @@ const CouponCard = ({ cartItems }) => {
     const userId = localStorage.getItem("userId");
 
     if (!userId) {
-      cogoToast.error("Please log in to apply a coupon.");
+      toast.error("Please log in to apply a coupon.");
       return;
     }
 
     if (cartItems.length === 0) {
-      cogoToast.error("Add items to your cart before applying a coupon code.");
+      toast.error("Add items to your cart before applying a coupon code.");
       return;
     }
 
@@ -242,19 +243,19 @@ const CouponCard = ({ cartItems }) => {
           if (matchingCoupon.couponType === "%") {
             setDiscount((total / 100) * matchingCoupon.couponValue);
             setAppliedCode(matchingCoupon.couponName);
-            cogoToast.success(
+            toast.success(
               `Coupon applied! You get a ${matchingCoupon.couponValue}% discount on the subtotal.`
             );
           } else if (matchingCoupon.couponType === "Rs") {
             setDiscount(parseFloat(matchingCoupon.couponValue));
             setAppliedCode(matchingCoupon.couponName);
-            cogoToast.success(
+            toast.success(
               `Coupon applied! You get a ₹${matchingCoupon.couponValue} discount on the subtotal.`
             );
           }
         } else {
           // Product not found in the cart
-          cogoToast.error(
+          toast.error(
             "No matching product found in your cart for this coupon."
           );
         }
@@ -262,20 +263,20 @@ const CouponCard = ({ cartItems }) => {
         if (matchingCoupon.couponType === "%") {
           setDiscount((total / 100) * matchingCoupon.couponValue);
           setAppliedCode(matchingCoupon.couponName);
-          cogoToast.success(
+          toast.success(
             `Coupon applied! You get a ${matchingCoupon.couponValue}% discount on the subtotal.`
           );
         } else if (matchingCoupon.couponType === "Rs") {
           setDiscount(parseFloat(matchingCoupon.couponValue));
           setAppliedCode(matchingCoupon.couponName);
-          cogoToast.success(
+          toast.success(
             `Coupon applied! You get a ₹${matchingCoupon.couponValue} discount on the subtotal.`
           );
         }
       }
     } else {
       setDiscount(0);
-      cogoToast.error("Invalid or inactive coupon code.");
+      toast.error("Invalid or inactive coupon code.");
     }
   };
 
@@ -399,7 +400,7 @@ const CouponCard = ({ cartItems }) => {
                 if (userId && cartItems.length > 0) {
                   navigate("/checkout", { state: { appliedCode } });
                 } else {
-                  cogoToast.warning(
+                  toast.warning(
                     "Add Items in cart before proceed to checkout"
                   );
                 }

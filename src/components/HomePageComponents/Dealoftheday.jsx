@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../../../constant";
 import axios from "axios";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaHeart, FaRegHeart, FaRegStar, FaStar } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -85,11 +86,11 @@ function Dealoftheday({
           }
         );
         setWishlistItems((prevWishlist) => [...prevWishlist, { productId }]);
-        cogoToast.success("Product added to wishlist");
+        toast.success("Product added to wishlist");
         fetchWishlistItems();
       } catch (error) {
         console.error("Error adding product to wishlist:", error);
-        cogoToast.error("Something went wrong! Try again later");
+        toast.error("Something went wrong! Try again later");
       }
     } else {
       navigate("/sign-in");
@@ -105,11 +106,11 @@ function Dealoftheday({
       setWishlistItems((prevWishlist) =>
         prevWishlist.filter((item) => item.productId !== productId)
       );
-      cogoToast.error("Product removed from wishlist");
+      toast.error("Product removed from wishlist");
       fetchWishlistItems();
     } catch (error) {
       console.error("Error removing product from wishlist:", error);
-      cogoToast.error("Something went wrong! Try again later");
+      toast.error("Something went wrong! Try again later");
     }
   };
 

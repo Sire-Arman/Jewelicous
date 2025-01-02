@@ -3,7 +3,8 @@ import "./NewAddress.css";
 import axios from "axios";
 import { BASE_URL } from "../../../constant";
 import { toast } from "react-toastify";
-import cogoToast from "cogo-toast";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function NewAddress() {
   const [newAddress, setNewAddress] = useState({
@@ -67,12 +68,12 @@ function NewAddress() {
       !sanitizedlandMark
     ) {
       setAddressErrors({ allFields: "Please fill in all required fields." });
-      cogoToast.error("Please fill in all required fields!");
+      toast.error("Please fill in all required fields!");
       return;
     }
 
     if (!/^\d{6}$/.test(newAddress.pinCode)) {
-      cogoToast.error("Please enter a valid 6-digit pin code.");
+      toast.error("Please enter a valid 6-digit pin code.");
       setAddressErrors((prevErrors) => ({
         ...prevErrors,
         pinCode: "Please enter a valid 6-digit pin code.",

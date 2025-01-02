@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BASE_URL } from "../../../../constant";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +38,7 @@ const DiscountBanner = () => {
     try {
       // Try using the modern clipboard API
       await navigator.clipboard.writeText(couponCode);
-      cogoToast.success("Coupon code copied!");
+      toast.success("Coupon code copied!");
     } catch (err) {
       // Fallback method for older browsers
       const textArea = document.createElement("textarea");
@@ -49,9 +50,9 @@ const DiscountBanner = () => {
       textArea.select();
       try {
         document.execCommand("copy");
-        cogoToast.success("Coupon code copied!");
+        toast.success("Coupon code copied!");
       } catch (err) {
-        cogoToast.error("Failed to copy coupon code.");
+        toast.error("Failed to copy coupon code.");
       }
       document.body.removeChild(textArea);
     }

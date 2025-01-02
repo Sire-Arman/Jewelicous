@@ -4,7 +4,8 @@ import { FaHeart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineStarPurple500, MdStarPurple500 } from "react-icons/md";
 import axios from "axios";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BASE_URL } from "../../../constant";
 import wishlistImg from "../../assets/Images/empty-cart.webp";
 import BackButton from "../CommonComponents/BackButton";
@@ -148,12 +149,12 @@ const CardsContainer = () => {
         `${BASE_URL}/wishlist/delete/${userId}/${productId}`
       );
 
-      cogoToast.error("Product removed from wishlist");
+      toast.error("Product removed from wishlist");
     } catch (error) {
       console.error("Error removing product from wishlist:", error);
 
       setWishlistItems([...wishlistItems, { productId }]);
-      cogoToast.error("Something went wrong! Try again later");
+      toast.error("Something went wrong! Try again later");
     }
   };
   const fetchCartItems = async () => {
@@ -179,10 +180,10 @@ const CardsContainer = () => {
     try {
       await axios.delete(`${BASE_URL}/wishlist/delete-all/${userId}/clear`);
       setWishlistItems([]);
-      cogoToast.success("Wishlist Cleared");
+      toast.success("Wishlist Cleared");
     } catch (error) {
       console.error("Error clearing wishlist:", error);
-      cogoToast.error("Something went wrong! Try again later");
+      toast.error("Something went wrong! Try again later");
     }
   };
 

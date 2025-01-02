@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { PiTruck } from "react-icons/pi";
 import pincodes from "../../utils/pincodes.json";
 import { BASE_URL } from "../../../constant";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import {
   FaCheck,
@@ -63,10 +64,10 @@ const VerifyPincode = () => {
 
     if (isPincodeInLocalList || isPincodeInCustomList) {
       setIsPincodeValid(true);
-      cogoToast.success("Pincode is valid.");
+      toast.success("Pincode is valid.");
     } else {
       setIsPincodeValid(false);
-      cogoToast.error("We cannot deliver to this pincode.");
+      toast.error("We cannot deliver to this pincode.");
     }
   };
 

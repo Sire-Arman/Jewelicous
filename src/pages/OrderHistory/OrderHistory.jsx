@@ -5,7 +5,8 @@ import BookCallComponent from "../../components/CommonComponents/BookACallCompon
 import styles from "./OrderHistory.module.css";
 import Modal from "react-bootstrap/Modal";
 import { ProgressBar } from "react-bootstrap";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { IoArrowRedoOutline } from "react-icons/io5";
 import orderImg from "../../assets/Images/order-new.png";
 import BackButton from "../../components/CommonComponents/BackButton";
@@ -224,7 +225,7 @@ function OrderHistory() {
         `${BASE_URL}/orders/status/${cancelSerialNo}?newStatus=CANCELED`
       );
 
-      cogoToast.success("Order Cancelled");
+      toast.success("Order Cancelled");
       window.location.reload();
     } catch (error) {
       console.error("Error updating order status:", error);
@@ -238,7 +239,7 @@ function OrderHistory() {
         `${BASE_URL}/api/return-request/${returnSerialNo}`,
         returnOrder
       );
-      cogoToast.success("Return Initiated");
+      toast.success("Return Initiated");
       await fetchOrders(); // Refresh orders to check updated status
     } catch (error) {
       console.error("Error updating order status:", error);

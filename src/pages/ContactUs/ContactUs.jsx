@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import BookCallComponent from "../../components/CommonComponents/BookACallComponent/BookCallComponent";
 import axios from "axios";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../../constant";
-import cogoToast from "cogo-toast";
+// import toast from "cogo-toast";
 import styles from "./ContactUs.module.css";
 
 function ContactUs() {
@@ -23,16 +24,16 @@ function ContactUs() {
     const sanitizedPhonenumber = phoneNo.replace(/\D/g, "");
 
     if (sanitizedUsername == "") {
-      cogoToast.error("Please Enter valid Username");
+      toast.error("Please Enter valid Username");
       return;
     // } else if (sanitizedMessageReason == "") {
-    //   cogoToast.error("Please Enter valid Message Reason");
+    //   toast.error("Please Enter valid Message Reason");
     //   return;
     } else if (phoneNo.length != 10 || phoneNo !== sanitizedPhonenumber) {
-      cogoToast.error("Please Enter a valid 10 digit Mobile number");
+      toast.error("Please Enter a valid 10 digit Mobile number");
       return;
     // } else if (sanitizedMessage == "") {
-    //   cogoToast.error("Please Enter valid Message");
+    //   toast.error("Please Enter valid Message");
     //   return;
     }
 
@@ -51,9 +52,9 @@ function ContactUs() {
 
         const { errorMessage } = response.data;
         if (errorMessage) {
-          cogoToast.error(errorMessage);
+          toast.error(errorMessage);
         } else {
-          cogoToast.success("Message sent!");
+          toast.success("Message sent!");
           setName("");
           setPhoneNo("");
           setMessageReason("");
@@ -65,7 +66,7 @@ function ContactUs() {
     } catch (error) {
       navigate("/error");
       console.error(error.response.data);
-      cogoToast.error("Something went wrong! Try again later");
+      toast.error("Something went wrong! Try again later");
     }
   };
 

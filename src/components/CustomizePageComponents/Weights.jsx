@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { BASE_URL } from "../../../constant";
 import axios from "axios";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Weight = ({ onWeightSelect, onApplyClick, noOfTimesFormSubmitted }) => {
   const [weight, setWeight] = useState([]);
@@ -96,7 +97,7 @@ const Weight = ({ onWeightSelect, onApplyClick, noOfTimesFormSubmitted }) => {
       sanitizedInputDiamondWeight === "" ||
       sanitizedInputGoldWeight === ""
     ) {
-      cogoToast.error("Please enter valid Weights");
+      toast.error("Please enter valid Weights");
       return;
     }
 

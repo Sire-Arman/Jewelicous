@@ -5,13 +5,13 @@ import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../../constant.jsx";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
 import NewAddress from "./NewAddress.jsx";
 import EditAddress from "./EditAddress.jsx";
 import { v4 as uuidv4 } from "uuid";
 import VerifyPincode from "../../components/ProductPageComponents/VerifyPincode.jsx";
-import { toast } from "react-toastify";
 
 const Checkout = () => {
   const location = useLocation();
@@ -323,14 +323,14 @@ const Checkout = () => {
   const placeOrder = async () => {
     try {
       if (!termsChecked) {
-        cogoToast.error(
+        toast.error(
           "Please agree to the terms & conditions before placing the order."
         );
         return;
       }
 
       if (allAddresses.length === 0) {
-        cogoToast.error(
+        toast.error(
           "Please add a shipping address before placing the order."
         );
         return;
@@ -459,13 +459,13 @@ const Checkout = () => {
       !sanitizedPinCode
     ) {
       setAddressErrors({ allFields: "Please fill in all required fields." });
-      cogoToast.error("Please fill in all required fields!");
+      toast.error("Please fill in all required fields!");
       return false;
     }
 
     if (!/^\d{6}$/.test(address.pinCode)) {
       setAddressErrors({ pinCode: "Please enter a valid 6-digit pin code." });
-      cogoToast.error("Please enter valid 6-digit code");
+      toast.error("Please enter valid 6-digit code");
       return;
     }
 
@@ -480,14 +480,14 @@ const Checkout = () => {
       );
 
       if (addressRes && addressRes.data) {
-        cogoToast.success("Address added successfully!");
+        toast.success("Address added successfully!");
         await fetchAddresses();
         setSelectedAddress(newAddressData);
         return true;
       }
     } catch (error) {
       console.error("Error adding address:", error);
-      cogoToast.error("Error adding address. Please try again.");
+      toast.error("Error adding address. Please try again.");
       return false;
     }
   };

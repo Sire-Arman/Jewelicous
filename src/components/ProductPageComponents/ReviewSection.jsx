@@ -3,7 +3,8 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 
 import { BASE_URL } from "../../../constant";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 
@@ -24,10 +25,10 @@ const ReviewSection = () => {
     const sanitizedMessage = message.replace(/\s+/g, "");
 
     if (sanitizedUsername === "") {
-      cogoToast.error("Please enter a valid username");
+      toast.error("Please enter a valid username");
       return;
     } else if (sanitizedMessage === "") {
-      cogoToast.error("Please enter a valid message");
+      toast.error("Please enter a valid message");
       return;
     }
 
@@ -40,14 +41,14 @@ const ReviewSection = () => {
         ratings: productRating,
       });
 
-      cogoToast.success(
+      toast.success(
         "Thank you for your rating! We appreciate your feedback."
       );
       event.target.reset();
       setRating(0);
     } catch (error) {
       console.error("Error submitting review:", error);
-      cogoToast.error("Error submitting review. Please try again later.");
+      toast.error("Error submitting review. Please try again later.");
     }
   };
 
@@ -56,7 +57,7 @@ const ReviewSection = () => {
 
     // Validate rating
     if (value < 0 || value > 5) {
-      cogoToast.error("Please enter a valid rating between 0 and 5");
+      toast.error("Please enter a valid rating between 0 and 5");
     } else {
       setRating(value);
     }

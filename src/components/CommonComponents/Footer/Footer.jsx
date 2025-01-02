@@ -6,7 +6,9 @@ import { IoMailOutline } from "react-icons/io5";
 import { CiMobile3 } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram, FaFacebookSquare, FaLinkedin } from "react-icons/fa";
-import cogoToast from "cogo-toast";
+// import toast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { BASE_URL } from "../../../../constant";
 
@@ -43,7 +45,7 @@ const Footer = ({ setOpeningCategory }) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(emailSubscribedValue)) {
-      cogoToast.error("Please enter a valid email address.");
+      toast.error("Please enter a valid email address.");
       return;
     }
 
@@ -54,16 +56,16 @@ const Footer = ({ setOpeningCategory }) => {
           `${BASE_URL}/api/newsletter/join?email=${emailSubscribedValue}`
         );
         if (response.data == "Email already signed up.") {
-          cogoToast.info(response.data);
+          toast.info(response.data);
         } else {
-          cogoToast.success(response.data);
+          toast.success(response.data);
           setEmailSubscribedValue("");
         }
       } catch (error) {
-        cogoToast.error("Error subscribing to the NeelJewells");
+        toast.error("Error subscribing to the NeelJewells");
       }
     } else {
-      cogoToast.error(
+      toast.error(
         "Please signup first in order to Subscribe our Newsletter"
       );
     }

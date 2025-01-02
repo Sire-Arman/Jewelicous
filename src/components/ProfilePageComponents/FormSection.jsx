@@ -3,7 +3,8 @@ import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 import "./styles.css";
 import { BASE_URL } from "../../../constant";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FormSection = () => {
   const [user, setUser] = useState({
@@ -114,14 +115,14 @@ const FormSection = () => {
       const sanitizedname = user.name.trim();
 
       if (!nameRegex.test(sanitizedname)) {
-        cogoToast.error("Name should only contain letters and spaces.");
+        toast.error("Name should only contain letters and spaces.");
         return;
       }
       // Update user information
 
       const mobileRegex = /^\d{10}$/;
       if (!mobileRegex.test(user.mobile)) {
-        cogoToast.error("Mobile number must be exactly 10 digits.");
+        toast.error("Mobile number must be exactly 10 digits.");
         return;
       }
 
@@ -131,11 +132,11 @@ const FormSection = () => {
       };
 
       await axios.post(`${BASE_URL}/users/updateUser/${userId}`, userData);
-      cogoToast.success("Your profile have been updated!");
+      toast.success("Your profile have been updated!");
       fetchAddresses();
     } catch (error) {
       console.error(error);
-      cogoToast.error("Error while updating profile. Please try again.");
+      toast.error("Error while updating profile. Please try again.");
     }
   };
 
@@ -146,7 +147,7 @@ const FormSection = () => {
 
       // Check if the user already has 3 addresses
       if (existingAddress.length >= 3) {
-        cogoToast.error("You can't add more than three addresses.");
+        toast.error("You can't add more than three addresses.");
         return;
       }
 
@@ -159,31 +160,31 @@ const FormSection = () => {
       const sanitizedPinCode = address.pinCode.replace(/\s+/g, "");
 
       if (sanitizedAddressType == "") {
-        cogoToast.error("Please Enter valid Address Type");
+        toast.error("Please Enter valid Address Type");
         return;
       }
       if (sanitizedAddressName == "") {
-        cogoToast.error("Please Enter valid House Name");
+        toast.error("Please Enter valid House Name");
         return;
       }
       if (sanitizedCity == "") {
-        cogoToast.error("Please Enter valid City Name");
+        toast.error("Please Enter valid City Name");
         return;
       }
       if (sanitizedStreet == "") {
-        cogoToast.error("Please Enter valid Street Name");
+        toast.error("Please Enter valid Street Name");
         return;
       }
       if (sanitizedState == "") {
-        cogoToast.error("Please Enter valid State Name");
+        toast.error("Please Enter valid State Name");
         return;
       }
       if (sanitizedCountry == "") {
-        cogoToast.error("Please Enter valid Country Name");
+        toast.error("Please Enter valid Country Name");
         return;
       }
       if (sanitizedPinCode == "") {
-        cogoToast.error("Please Enter valid Pin code");
+        toast.error("Please Enter valid Pin code");
         return;
       }
 
@@ -207,7 +208,7 @@ const FormSection = () => {
       );
 
       fetchAddresses();
-      cogoToast.success("Address added successfully!");
+      toast.success("Address added successfully!");
 
       setAddress({
         addrId: "",
@@ -222,7 +223,7 @@ const FormSection = () => {
       });
     } catch (error) {
       console.error(error);
-      cogoToast.error("Error while adding Address. Please try again.");
+      toast.error("Error while adding Address. Please try again.");
     }
   };
 
@@ -244,35 +245,35 @@ const FormSection = () => {
       const sanitizedLandMark = address.landMark.replace(/\s+/g, "");
 
       if (sanitizedAddressType == "") {
-        cogoToast.error("Please Enter valid Address Type");
+        toast.error("Please Enter valid Address Type");
         return;
       }
       if (sanitizedAddressName == "") {
-        cogoToast.error("Please Enter valid House Name");
+        toast.error("Please Enter valid House Name");
         return;
       }
       if (sanitizedCity == "") {
-        cogoToast.error("Please Enter valid City Name");
+        toast.error("Please Enter valid City Name");
         return;
       }
       if (sanitizedStreet == "") {
-        cogoToast.error("Please Enter valid Street Name");
+        toast.error("Please Enter valid Street Name");
         return;
       }
       if (sanitizedState == "") {
-        cogoToast.error("Please Enter valid State Name");
+        toast.error("Please Enter valid State Name");
         return;
       }
       if (sanitizedCountry == "") {
-        cogoToast.error("Please Enter valid Country Name");
+        toast.error("Please Enter valid Country Name");
         return;
       }
       if (sanitizedPinCode == "") {
-        cogoToast.error("Please Enter valid Pin code");
+        toast.error("Please Enter valid Pin code");
         return;
       }
       if (sanitizedLandMark == "") {
-        cogoToast.error("Please Enter valid landmark");
+        toast.error("Please Enter valid landmark");
         return;
       }
 
@@ -283,10 +284,10 @@ const FormSection = () => {
 
       setEditableAddressId(null);
       fetchAddresses();
-      cogoToast.success("Address updated successfully!");
+      toast.success("Address updated successfully!");
     } catch (error) {
       console.error(error);
-      cogoToast.error("Error updating address. Please try again.");
+      toast.error("Error updating address. Please try again.");
     }
   };
 
@@ -301,11 +302,11 @@ const FormSection = () => {
       await axios.delete(
         `${BASE_URL}/users/deleteAddress?userId=${userId}&addrId=${addressToDelete}`
       );
-      cogoToast.success("Address deleted successfully!");
+      toast.success("Address deleted successfully!");
       fetchAddresses();
     } catch (error) {
       console.error("Error deleting address:", error);
-      cogoToast.error("Error deleting address. Please try again.");
+      toast.error("Error deleting address. Please try again.");
     } finally {
       setIsDeleteModalOpen(false);
       setAddressToDelete(null);

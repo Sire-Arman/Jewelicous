@@ -11,7 +11,8 @@ import Modal from "react-bootstrap/Modal";
 import Weight from "../../components/CustomizePageComponents/Weights";
 import { BASE_URL } from "../../../constant";
 import axios from "axios";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -233,14 +234,14 @@ const CustomizePage = () => {
     const sanitizedPhonenumber = customizeProduct.userPhone.replace(/\D/g, ""); // Removes non-digits
 
     if (!usernameRegex.test(sanitizedUsername)) {
-      cogoToast.error(
+      toast.error(
         "Please enter a valid Username without special characters or numbers."
       );
       return;
     }
 
     if (sanitizedPhonenumber.length !== 10) {
-      cogoToast.error("Please enter a valid 10-digit Mobile number.");
+      toast.error("Please enter a valid 10-digit Mobile number.");
       return;
     }
 
@@ -271,7 +272,7 @@ const CustomizePage = () => {
           }
         });
 
-        // cogoToast.success(
+        // toast.success(
         //   "Your customization request has been submitted successfully!t"
         // );
 
@@ -299,7 +300,7 @@ const CustomizePage = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-      // cogoToast.error("Something went wrong with your submission.");
+      // toast.error("Something went wrong with your submission.");
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -329,7 +330,7 @@ const CustomizePage = () => {
         !isCurrentAccordionOpenState
       );
     } else {
-      cogoToast.error(
+      toast.error(
         `Please select the other above fields before selecting ${currentAccordionName}.`
       );
     }

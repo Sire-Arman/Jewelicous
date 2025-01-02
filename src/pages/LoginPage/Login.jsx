@@ -5,7 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import { BASE_URL } from "../../../constant";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -74,7 +75,7 @@ function Login() {
     if (Object.keys(validateResult).length) return;
 
     if (!isChecked) {
-      cogoToast.error("Please agree to our Terms and conditions");
+      toast.error("Please agree to our Terms and conditions");
       return;
     }
 
@@ -89,18 +90,18 @@ function Login() {
       const { userId } = response.data;
 
       if (!userId) {
-        cogoToast.error(
+        toast.error(
           "User not found. Please check your credentials or sign up."
         );
         return;
       }
       localStorage.setItem("userId", userId);
-      cogoToast.success("Login successful!");
+      toast.success("Login successful!");
       navigate("/");
       navigate("/");
     } catch (error) {
       console.error(error.response);
-      cogoToast.error("Login failed. Please check your credentials.");
+      toast.error("Login failed. Please check your credentials.");
       return;
     }
 

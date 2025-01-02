@@ -6,7 +6,8 @@ import Slider from "react-slider";
 import { BsSliders } from "react-icons/bs";
 import ResponsiveFilterSection from "./ResponsiveFilterSection";
 import axios from "axios";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BASE_URL } from "../../../constant";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
@@ -272,7 +273,7 @@ const SortMenuComponent = ({
                       isNaN(sanitizedRange) ||
                       sanitizedRange.split(".").some((part) => isNaN(part))
                     ) {
-                      cogoToast.error(
+                      toast.error(
                         `${minPrice} is not valid price range. Please enter a valid price range (e.g., 123.45)`
                       );
                       setMinPrice(values[0]);
@@ -320,7 +321,7 @@ const SortMenuComponent = ({
                       isNaN(sanitizedRange) ||
                       sanitizedRange.split(".").some((part) => isNaN(part))
                     ) {
-                      cogoToast.error(
+                      toast.error(
                         `${maxPrice} is not valid price range. Please enter a valid price range (e.g., 123.45)`
                       );
                       setMaxPrice(values[1]);
@@ -472,7 +473,7 @@ const SortMenuComponent = ({
                           isNaN(sanitizedRange) ||
                           sanitizedRange.split(".").some((part) => isNaN(part))
                         ) {
-                          cogoToast.error(
+                          toast.error(
                             `${minPrice} is not valid price range. Please enter a valid price range (e.g., 123.45)`
                           );
                           setMinPrice(values[0]);
@@ -516,7 +517,7 @@ const SortMenuComponent = ({
                           isNaN(sanitizedRange) ||
                           sanitizedRange.split(".").some((part) => isNaN(part))
                         ) {
-                          cogoToast.error(
+                          toast.error(
                             `${maxPrice} is not valid price range. Please enter a valid price range (e.g., 123.45)`
                           );
                           setMaxPrice(values[1]);

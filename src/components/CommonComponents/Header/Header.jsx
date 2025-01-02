@@ -10,7 +10,7 @@ import { IoHome } from "react-icons/io5";
 import { LiaSignOutAltSolid } from "react-icons/lia";
 import { GoPackageDependents } from "react-icons/go";
 import { GiHamburgerMenu } from "react-icons/gi";
-import cogoToast from "cogo-toast";
+// import toast from "cogo-toast";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../../../../public/conpanylogo1.png";
@@ -77,7 +77,7 @@ export default function Header({
 
   const handleLogout = async () => {
     localStorage.removeItem("userId");
-    cogoToast.success("Logout successfully");
+    toast.success("Logout successfully");
     navigate("/");
   };
   const fetchFlashSaleMessage = async () => {

@@ -6,7 +6,8 @@ import { MdOutlineStarPurple500, MdStarPurple500 } from "react-icons/md";
 
 import axios from "axios";
 import { BASE_URL } from "../../../constant";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CouponCard from "./CouponCard";
 import ShareModal from "./CopyLinkModal.jsx";
 import cartImg from "../../assets/Images/empty-cart-new.png";
@@ -157,11 +158,11 @@ const CartItems = ({ scrollToRelatedProducts }) => {
 
       fetchCartItems();
       if (showNotification) {
-        cogoToast.warn("Product removed from cart");
+        toast.warn("Product removed from cart");
       }
     } catch (error) {
       console.error("Error removing product from cart:", error);
-      cogoToast.error("Something went wrong! Try again later");
+      toast.error("Something went wrong! Try again later");
     }
   };
 
@@ -175,7 +176,7 @@ const CartItems = ({ scrollToRelatedProducts }) => {
       fetchCartItems();
     } catch (error) {
       console.error("Error updating quantity:", error);
-      cogoToast.error("Something went wrong! Try again later");
+      toast.error("Something went wrong! Try again later");
     }
   };
 
@@ -193,10 +194,10 @@ const CartItems = ({ scrollToRelatedProducts }) => {
         });
         await handleProductRemove(productId, false);
 
-        cogoToast.success("Product added to wishlist");
+        toast.success("Product added to wishlist");
       } catch (error) {
         console.error("Error adding product to wishlist:", error);
-        cogoToast.error("Something went wrong! Try again later");
+        toast.error("Something went wrong! Try again later");
       }
     } else {
       navigate("/login");
@@ -219,11 +220,11 @@ const CartItems = ({ scrollToRelatedProducts }) => {
       navigator.clipboard
         .writeText(shareLink)
         .then(() => {
-          cogoToast.success("Product link copied");
+          toast.success("Product link copied");
         })
         .catch((error) => {
           console.error("Error copying text: ", error);
-          cogoToast.error("Failed to copy product link");
+          toast.error("Failed to copy product link");
         });
     } else {
       // Fallback method
@@ -233,10 +234,10 @@ const CartItems = ({ scrollToRelatedProducts }) => {
       textarea.select();
       try {
         document.execCommand("copy");
-        cogoToast.success("Product link copied");
+        toast.success("Product link copied");
       } catch (error) {
         console.error("Fallback copy failed: ", error);
-        cogoToast.error("Failed to copy product link");
+        toast.error("Failed to copy product link");
       }
       document.body.removeChild(textarea);
     }

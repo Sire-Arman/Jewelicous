@@ -10,7 +10,8 @@ import {
 import { BASE_URL } from "../../../constant";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import cogoToast from "cogo-toast";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Pricebreakup from "../ProductPageComponents/Pricebreakup";
 import CustomizeSelect from "./CustomizeSelect";
 import { MenuItem, Select } from "@mui/material";
@@ -256,7 +257,7 @@ function TopSection({ productCategory, setProductCategory }) {
     const defaultOption = "Select your Option";
 
     if (!selectedColor || selectedColor === defaultOption) {
-      cogoToast.error("Please select a color before adding to cart.");
+      toast.error("Please select a color before adding to cart.");
       return;
     }
 
@@ -278,7 +279,7 @@ function TopSection({ productCategory, setProductCategory }) {
       const message = `Please select ${missingOptions.join(
         ", "
       )} before adding to cart.`;
-      cogoToast.error(message);
+      toast.error(message);
       return;
     }
 
@@ -287,11 +288,11 @@ function TopSection({ productCategory, setProductCategory }) {
         await axios.post(
           `${BASE_URL}/usercart/add-product?userId=${userId}&productId=${productId}&orderQuantity=1&size=${selectedSize}&gold=${selectedGoldPurity}&diamond=${selectedDiamondPurity}&color=${selectedColor}`
         );
-        cogoToast.success("Product added to cart");
+        toast.success("Product added to cart");
         fetchCartItems();
       } catch (error) {
         console.error("Error adding product to cart:", error);
-        cogoToast.error("Something went wrong! Try again later");
+        toast.error("Something went wrong! Try again later");
       }
     } else {
       navigate("/sign-in");
